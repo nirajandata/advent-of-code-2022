@@ -12,13 +12,14 @@ int main(){
 	string filename="two.in";
 	ifstream file(filename);
 	string s;
-	vector<int> t={3,1,2};
 	long long val=0;
 	while(getline (file,s)){
 		int me=score(s[2]), enemy=score(s[0]);
 //		cout << enemy << " " << me << endl;
 		val+=3*(me-1);
-		val+= t[(enemy-2+me)%3];
+		int formula=(enemy-2+me)%3;
+		formula=(formula?formula:3);
+		val+= formula;
 	}
 	cout << val << endl;
 	return 0;
