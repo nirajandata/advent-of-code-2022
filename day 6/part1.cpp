@@ -17,14 +17,17 @@ int main(){
 	string s;
 	cin>>s;
 	vector<int> po;
-	for(int i=0;i<(int) s.size();i++){
-		if(po.size() && present(po,s[i])){
-			po.erase(po.begin(),po.begin()+pos);
-		}
+	for(int i=0;i<=(int) s.size();i++){
 		if(po.size()==4){
 			cout << i << endl;
 			break;
 		}
+		//setupto i=s.size for last checking 
+		if(s.size()==i) break;
+		if(po.size() && present(po,s[i])){
+			po.erase(po.begin(),po.begin()+pos);
+		}
+
 		po.push_back(s[i]-'a');
 	}
 	return 0;
